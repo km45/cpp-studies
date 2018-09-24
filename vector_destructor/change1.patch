@@ -1,0 +1,12 @@
+--- a/main.cc
++++ b/main.cc
+@@ -8,7 +8,8 @@ class Hoge : public std::vector<int> {
+ };
+ 
+ int main() {
+-  Hoge hoge;
++  std::vector<int>* v = new Hoge();
++  delete v;
+ 
+   return 0;
+ }
