@@ -1,5 +1,4 @@
 #include <iostream>
-#include <typeinfo>
 
 #define SHOW_INFO(_TYPE) (show_info_impl<_TYPE>(#_TYPE))
 
