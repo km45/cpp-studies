@@ -1,11 +1,14 @@
-FROM gcc:latest
+FROM alpine:3.9
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
+RUN apk update \
+    && apk add \
+        bash \
         cmake \
-        ninja-build \
+        g++ \
+        git \
+        make \
+        ninja \
         valgrind \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/cache/apk/*
 
 CMD ["tail", "-f", "/dev/null"]
