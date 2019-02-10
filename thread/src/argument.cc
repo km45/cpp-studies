@@ -2,13 +2,17 @@
 
 #include <functional>
 #include <iostream>
+#include <sstream>
 #include <thread>
+
+#include "print.h"
 
 void Piyo(const int times, const int interval) {
   for (auto i = 0; i < times; ++i) {
     sleep(interval);
-    std::cout << __func__ << "(" << times << ", " << interval << ")"
-              << std::endl;
+    std::stringstream ss;
+    ss << __func__ << "(" << times << ", " << interval << ")";
+    Print(ss.str());
   }
 }
 

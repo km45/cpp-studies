@@ -3,17 +3,19 @@
 #include <iostream>
 #include <thread>
 
+#include "print.h"
+
 void Hoge() {
   for (auto i = 0; i < 5; ++i) {
     sleep(2);
-    std::cout << __func__ << std::endl;
+    Print(__func__);
   }
 }
 
 void Fuga() {
   for (auto i = 0; i < 3; ++i) {
     sleep(3);
-    std::cout << __func__ << std::endl;
+    Print(__func__);
   }
 }
 
