@@ -8,3 +8,5 @@ target_link_libraries(basic print)
 
 add_executable(argument src/argument.cc)
 target_link_libraries(argument print)
+
+add_executable(mutex src/mutex.cc)
