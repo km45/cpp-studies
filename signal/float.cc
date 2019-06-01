@@ -1,3 +1,4 @@
+#include <cfloat>
 #include <cmath>
 #include <iostream>
 #include <limits>
@@ -36,6 +37,9 @@ int main() {
             << std::endl;
   std::cout << "-1 / -inf = " << (kNegativeOne / kNegativeInfinity)
             << std::endl;
+
+  std::cout << "DBL_TRUE_MIN = " << DBL_TRUE_MIN << std::endl;
+  std::cout << "DBL_TRUE_MIN / 2 = " << (DBL_TRUE_MIN / 2) << std::endl;
 
   return 0;
 }
