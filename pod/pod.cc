@@ -41,6 +41,8 @@ struct NonTrivial {
 };
 EXPECT_NON_POD(NonTrivial);
 
+EXPECT_NON_POD(int&);
+
 EXPECT_POD(int[]);
 EXPECT_POD(std::array<int, 2>);
 
