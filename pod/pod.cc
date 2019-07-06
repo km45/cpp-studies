@@ -43,6 +43,12 @@ EXPECT_NON_POD(NonTrivial);
 
 EXPECT_NON_POD(int&);
 
+enum class Hoge{
+    HOGE_1,
+    HOGE_2
+};
+EXPECT_POD(Hoge);
+
 EXPECT_POD(int[]);
 EXPECT_POD(std::array<int, 2>);
 
