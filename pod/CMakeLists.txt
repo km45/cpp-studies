@@ -15,3 +15,4 @@ add_compile_options(
 
 add_library(fundamental fundamental.cc)
 add_library(standard_layout standard_layout.cc)
+add_library(trivial trivial.cc)
