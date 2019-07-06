@@ -60,7 +60,19 @@ struct
 #undef CLASS_NAME
 };
 
+struct UserDefinedSpecialMemberFunctions {
+#define CLASS_NAME UserDefinedSpecialMemberFunctions
+  DEFAULT_CONSTRUCTOR(CLASS_NAME) {}
+  DESTRUCTOR(CLASS_NAME) = default;
+  COPY_CONSTRUCTOR(CLASS_NAME) = default;
+  MOVE_CONSTRUCTOR(CLASS_NAME) = default;
+  COPY_ASSIGNMENT_OPERATOR(CLASS_NAME) = default;
+  MOVE_ASSIGNMENT_OPERATOR(CLASS_NAME) = default;
+#undef CLASS_NAME
+};
+
 EXPECT_TRIVIAL(ExplicitlyDefaultDefinedAllSpecialMemberFunctions);
 EXPECT_TRIVIAL(ExplicitlyDeleteDefinedAllSpecialMemberFunctions);
 EXPECT_NON_TRIVIAL(
     ExplicitlyDefaultDefinedAllSpecialMemberFunctionsExceptDefaultConstructor);
+EXPECT_NON_TRIVIAL(UserDefinedSpecialMemberFunctions);
