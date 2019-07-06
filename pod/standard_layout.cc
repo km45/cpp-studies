@@ -26,6 +26,7 @@ using StandardLayoutWithNonStaticMemberSample1 = MemberVariable;
 struct StandardLayoutWithNonStaticMemberSample2 {
   int x;
 };
+using StandardLayoutWithNonStaticPublicMemberSample = MemberVariable;
 
 //-----------------------------------------------------------------------------
 // Empty struct
@@ -157,4 +158,40 @@ EXPECT_NON_STANDARD_LAYOUT(MultipleInheritanceNonStaticMemberCount2);
 //-----------------------------------------------------------------------------
 // Access specifier
 //-----------------------------------------------------------------------------
-// TODO: have multiple access specifier for non-static members
+struct MemberAccessSpecifierForFunctions {
+ public:
+  void Hoge() {}
+
+ protected:
+  void Fuga();
+
+ private:
+  void Piyo();
+};
+
+struct SingleMemberAccessSpecifierPublicForVariable {
+ public:
+  int x;
+};
+struct SingleMemberAccessSpecifierProtectedForVariable {
+ protected:
+  int x;
+};
+struct SingleMemberAccessSpecifierPrivateForVariable {
+ private:
+  int x;
+};
+
+struct MultipleMemberAccessSpecifierForVariables {
+ public:
+  int x;
+
+ private:
+  int y;
+};
+
+EXPECT_STANDARD_LAYOUT(MemberAccessSpecifierForFunctions);
+EXPECT_STANDARD_LAYOUT(SingleMemberAccessSpecifierPublicForVariable);
+EXPECT_STANDARD_LAYOUT(SingleMemberAccessSpecifierProtectedForVariable);
+EXPECT_STANDARD_LAYOUT(SingleMemberAccessSpecifierPrivateForVariable);
+EXPECT_NON_STANDARD_LAYOUT(MultipleMemberAccessSpecifierForVariables);
