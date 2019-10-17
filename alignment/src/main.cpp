@@ -14,6 +14,15 @@ struct Hoge {
   Hoge() { std::memset(this, 0, sizeof(*this)); }
 };
 
+struct Fuga {
+  char c1;
+  int i;
+  char c2;
+  double d;
+
+  Fuga() { std::memset(this, 0, sizeof(*this)); }
+};
+
 struct Empty {};
 
 void ShowTypeInfo() {
@@ -77,6 +86,29 @@ int main() {
   }
   PrintMemory(h3);
   std::cout << "i = " << h3.i << std::endl;
+
+  Fuga f;
+  f.c1 = 0xaa;
+  {
+    auto p = reinterpret_cast<char*>(&f.i);
+    p[0] = 0x12;
+    p[1] = 0x34;
+    p[2] = 0x56;
+    p[3] = 0x78;
+  }
+  f.c2 = 0xbb;
+  {
+    auto p = reinterpret_cast<char*>(&f.d);
+    p[0] = 0x12;
+    p[1] = 0x34;
+    p[2] = 0x55;
+    p[3] = 0x55;
+    p[4] = 0x55;
+    p[5] = 0x55;
+    p[6] = 0x67;
+    p[7] = 0x89;
+  }
+  PrintMemory(f);
 
   return 0;
 }
