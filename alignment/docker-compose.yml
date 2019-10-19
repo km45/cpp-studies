@@ -1,0 +1,11 @@
+---
+
+version: "3"
+
+services:
+  be-compile:
+    build:
+      context: .
+    working_dir: /usr/src/app
+    volumes:
+      - ${PWD}:/usr/src/app

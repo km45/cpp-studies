@@ -45,6 +45,12 @@ int main() {
   ShowTypeInfo();
   std::cout << std::endl;
 
+  std::cout << "[u64t]" << std::endl;
+  std::uint64_t u64t = 0x0123456789abcdef;
+  PrintMemory(u64t);
+  std::cout << "u64t = " << u64t << std::endl;
+  std::cout << std::endl;
+
   std::cout << "[h1]" << std::endl;
   Hoge h1;
   {
